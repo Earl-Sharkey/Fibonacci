@@ -14,8 +14,8 @@ jobs:
     if: >
       github.event.issue.pull_request &&
       (
-        github.event.comment.body == ':cool:' ||
-        github.event.comment.body == '🆒'
+        contains(github.event.comment.body, ':cool:') ||
+        contains(github.event.comment.body, '🆒')
       )
     runs-on: ubuntu-latest
 
