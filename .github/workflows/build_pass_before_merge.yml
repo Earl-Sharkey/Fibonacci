@@ -1,0 +1,16 @@
+name: AppleScript Validate
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-scpt:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate compiled AppleScript
+        run: |
+          mkdir -p /tmp/applescript-build
+          osacompile -o /tmp/applescript-build/Fibonacci-validated.scpt ./Fibonacci.scpt
